@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form action="https://formsubmit.app/f/um9fb5h7gc" method="post" onsubmit="return checkHobbies()">
+        <input type="hidden" name="_next"
+value="https://suxhill.github.io/form/suii.html">
+
+        Name:
+        <input type="text" name="name" placeholder="Enter your name..." required>
+        <br><br>
+
+        Password:
+        <input type="password" name="password" placeholder="Enter your Password.." minlength="8" required>
+        <br><br>
+
+        Gender:
+        <input type="radio" name="gender" value="Male" required> Male
+
+        <input type="radio" name="gender" value="Female"> Female
+        <br><br>
+
+        Hobbies:
+        <input type="checkbox" name="hobby[]" class="hobby" value="Reading"> Reading
+
+        <input type="checkbox" name="hobby[]" class="hobby" value="Sports"> Sports
+
+        <input type="checkbox" name="hobby[]" class="hobby" value="Music"> Music
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+        <input type="reset" value="Reset" onmouseover="dono()" onmouseout="doso()">
+
+    </form>
+    <h1 id="msg"></h1>
+    <script>
+        function dono(){
+            document.getElementById("msg").innerHTML="Don't click reset";
+        }
+        function doso(){
+            document.getElementById("msg").innerHTML="";
+        }
+          function checkHobbies() {
+
+            let hobbies = document.getElementsByClassName("hobby");
+            let count = 0;
+
+            for (let i = 0; i < hobbies.length; i++) {
+
+                if (hobbies[i].checked) {
+                    count++;
+                }
+
+            }
+
+            if (count == 0) {
+                alert("Please select at least one hobby!");
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+</body>
+</html>
